@@ -2,6 +2,10 @@ import React, { useEffect } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
+import Login from "./Login";
+import Private from "./Private";
+import Signup from "./Signup";
+
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
@@ -12,12 +16,12 @@ export const Home = () => {
 
 			if (!backendUrl) throw new Error("VITE_BACKEND_URL is not defined in .env file")
 
-			const response = await fetch(backendUrl + "/api/hello")
-			const data = await response.json()
+			//const response = await fetch(backendUrl + "/api/hello")
+			//const data = await response.json()
 
-			if (response.ok) dispatch({ type: "set_hello", payload: data.message })
+			//if (response.ok) dispatch({ type: "set_hello", payload: data.message })
 
-			return data
+			//return data
 
 		} catch (error) {
 			if (error.message) throw new Error(
@@ -34,19 +38,9 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1 className="display-4">Hello Rigo!!</h1>
-			<p className="lead">
-				<img src={rigoImageUrl} className="img-fluid rounded-circle mb-3" alt="Rigo Baby" />
-			</p>
-			<div className="alert alert-info">
-				{store.message ? (
-					<span>{store.message}</span>
-				) : (
-					<span className="text-danger">
-						Loading message from the backend (make sure your python 🐍 backend is running)...
-					</span>
-				)}
-			</div>
+	
+			<Login />
+		
 		</div>
 	);
 }; 
