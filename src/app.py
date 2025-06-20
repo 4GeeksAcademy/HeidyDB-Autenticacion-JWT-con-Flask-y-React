@@ -103,7 +103,7 @@ def login():
     access_token = create_access_token(identity=user.email) # aqui est GENERANDO EL TOKEN c esa funcion
     #y ademas estoy guardando junto al token el email del usuario
     print (user)
-    return jsonify({'msg': 'ok', 'token': access_token, 'usuario': user.email}), 200
+    return jsonify({'msg': 'ok', 'token': access_token, 'user': user.email}), 200
 
 #___________________GET /protected __________________________________________________________
 #aqui obtengo datos del area privada del usuario pasandole el token 
